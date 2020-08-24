@@ -1,3 +1,5 @@
 vendor
+weather/.phalcon/*
+!weather/.phalcon/.geetkip
 weather/cache
 weather/.env
