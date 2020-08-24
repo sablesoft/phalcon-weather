@@ -11,6 +11,6 @@ composer install
                                chown -R www-data:www-data weather;
 
 # run app migrations:
-phalcon migration run;
+cd weather && phalcon migration run;
 
 /start.sh
