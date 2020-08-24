@@ -8,7 +8,9 @@ composer install
 
 # project init
 [ ! -d "/project/weather" ] && cd /project && phalcon project weather && \
-                               phalcon migration run && \
                                chown -R www-data:www-data weather;
+
+# run app migrations:
+phalcon migration run;
 
 /start.sh
