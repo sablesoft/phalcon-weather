@@ -1,0 +1,4 @@
+vendor
+weather/.phalcon
+weather/cache
+weather/.env

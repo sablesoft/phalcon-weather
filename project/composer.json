@@ -1,0 +1,22 @@
+{
+    "name": "sablesoft/phalcon-weather",
+    "description": "Phalcon Weather - Test work",
+    "type": "project",
+    "require": {
+        "php": "^7.0",
+        "ext-phalcon": "~4.0",
+        "ext-json": "*",
+        "sablesoft/api-openweather": "^1.0"
+    },
+    "require-dev": {
+        "phalcon/devtools": "~4.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Roman Sobal",
+            "email": "sable.lair@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
