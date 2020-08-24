@@ -31,13 +31,13 @@ services:
       - internal
     env_file:
       - .env
-    ports:
-      - "3306:3306"
+#    ports:
+#      - "3306:3306"
   redis:
     image: redis
     container_name: redis
-    ports:
-      - "6379:6379"
+#    ports:
+#      - "6379:6379"
     restart: always
     networks:
       - internal
