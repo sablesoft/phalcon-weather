@@ -1,0 +1,55 @@
+version: '3'
+services:
+
+  app:
+    build: docker
+    container_name: phalcon
+    working_dir: /project
+    ports:
+      - "443:443"
+      - "80:80"
+    volumes:
+      - ./project:/project
+      - .env:/project/weather/.env
+#      - ./docker/php/xdebug.ini:/etc/php/7.2/fpm/conf.d/xdebug.ini
+#      - ./docker/php/xdebug.ini:/etc/php/7.2/cli/conf.d/xdebug.ini
+      - ./docker/nginx/default.conf:/etc/nginx/sites-enabled/default.conf
+    networks:
+      - internal
+    env_file:
+      - .env
+
+  # dev mysql db:
+  db:
+    image: mysql
+    container_name: phalcondb
+    working_dir: /dump
+    volumes:
+      - ./docker/dump:/dump
+      - ./docker/my.cnf:/etc/mysql/my.cnf
+    networks:
+      - internal
+    env_file:
+      - .env
+    ports:
+      - "3306:3306"
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+      - "6379:6379"
+    restart: always
+    networks:
+      - internal
+
+volumes:
+  db:
+  redis:
+
+networks:
+  internal:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.222.0/28

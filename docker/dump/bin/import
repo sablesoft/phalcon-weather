@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+if [ -f "$1" ]; then
+  mysql -uroot -p"${MYSQL_ROOT_PASSWORD}" "${MYSQL_DATABASE}" -vvv < "$1";
+else
+    echo "Dump file does not found!."
+fi

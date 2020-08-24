@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# shellcheck disable=SC2046
+mysqldump -u"${MYSQL_USER}" -p"${MYSQL_PASSWORD}" "${MYSQL_DATABASE}" -vvv > dump-$(date +"%m-%d-%Y").sql;
